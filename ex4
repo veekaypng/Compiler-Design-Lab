@@ -1,0 +1,31 @@
+%{
+#include "valvar.tab.h"
+%}
+
+%%
+
+[a-zA-Z] {
+    return LET;
+}
+
+[0-9] {
+    return DIG;
+}
+
+[ \t] {
+    /* Skip spaces and tabs */
+}
+
+\n {
+    return 0;
+}
+
+. {
+    /* Ignore other characters */
+}
+
+%%
+
+int yywrap() {
+    return 1;
+}
